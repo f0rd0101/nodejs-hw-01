@@ -7,9 +7,8 @@ export const readContacts = async () => {
     return JSON.parse(data);
   } catch (error) {
     console.error(error);
+    return [];  
   }
 };
 
-readContacts()
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error));
+

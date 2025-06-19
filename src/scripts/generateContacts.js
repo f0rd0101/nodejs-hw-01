@@ -5,15 +5,12 @@ import { writeContacts } from '../utils/writeContacts.js';
 const generateContacts = async (number) => {
   try {
     const prevContacts = await readContacts();
-    const newContacts = Array.from({ length: number }, () =>
-      createFakeContact(),
-    );
+    const newContacts = Array.from({ length: number }, () => createFakeContact());
     const addContacts = [...prevContacts, ...newContacts];
     await writeContacts(addContacts);
-    console.log(`Успішно згенеровано ${number} контактів.`);
-  } catch (error) {
-    console.error(error);
+  } catch {
+   
   }
 };
 
-generateContacts(5);
+await generateContacts(5);
